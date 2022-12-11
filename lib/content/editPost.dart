@@ -1,4 +1,4 @@
-// ignore_for_file: deprecated_member_use
+// ignore_for_file: deprecated_member_use, prefer_const_constructors
 
 import 'dart:io';
 
@@ -88,8 +88,7 @@ class _EditPostState extends State<EditPost> {
       appBar: AppBar(
         title: Text("Edit Post"),
         actions: [
-          FlatButton(
-            textColor: Colors.white,
+          TextButton(
             onPressed: () async {
               if (imagesToUpload.isNotEmpty || orgImages.isNotEmpty) {
                 await postUpdate(
@@ -152,8 +151,8 @@ class _EditPostState extends State<EditPost> {
                             width: 120,
                             child: Text(
                               "Ok",
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 20),
+                              style: TextStyle(
+                                  color: Colors.white, fontSize: 20),
                             ),
                           )
                         ],
@@ -161,8 +160,11 @@ class _EditPostState extends State<EditPost> {
                     .show();
               }
             },
-            child: Text("Save", style: TextStyle(fontSize: 20)),
-            shape: CircleBorder(side: BorderSide(color: Colors.transparent)),
+            child: Text("Save",
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.white,
+                )),
           ),
         ],
       ),

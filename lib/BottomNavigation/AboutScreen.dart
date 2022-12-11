@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors, prefer_const_constructors_in_immutables, use_key_in_widget_constructors
+
 import 'package:flutter/material.dart';
 
 class AboutScreen extends StatelessWidget {
@@ -91,66 +93,96 @@ class AboutScreen extends StatelessWidget {
               height: 40,
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: Row(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Column(
                 children: [
-                  Column(
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      CircleAvatar(
-                        radius: 50,
-                        backgroundImage: NetworkImage(
-                            'https://avatars.githubusercontent.com/u/51864970?v=4'),
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Container(
-                          padding: EdgeInsets.all(5),
-
-                          child: Text(
-                            'Mohammed Ibrahim',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Colors.blue),
-                          )),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Container(
-                          padding: EdgeInsets.all(5),
-
-                          child: Text(
+                      Column(
+                        children: [
+                          CircleAvatar(
+                            radius: 50,
+                            backgroundImage: NetworkImage(
+                                'https://avatars.githubusercontent.com/u/51864970?v=4'),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Container(
+                              padding: EdgeInsets.all(3),
+                              child: Text(
+                                'Mohammed Ibrahim',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 14,
+                                    color: Colors.blue),
+                              )),
+                          Text(
                             'Flutter Developer',
-                            style: TextStyle(color: Colors.blue,),
-                          )),
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: Colors.blue,
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        width: 15,
+                      ),
+                      Column(
+                        children: [
+                          CircleAvatar(
+                            radius: 50,
+                            backgroundImage: NetworkImage(
+                                'https://avatars.githubusercontent.com/u/55570333?v=4'),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Container(
+                              padding: EdgeInsets.all(3),
+                              child: Text(
+                                'Hassan Elsayed',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 14,
+                                    color: Colors.blue),
+                              )),
+                          Text(
+                            'Flutter Developer',
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: Colors.blue,
+                            ),
+                          ),
+                        ],
+                      ),
                     ],
                   ),
                   SizedBox(
-                    width: 40,
+                    height: 20,
                   ),
-                  Column(
+                  Row(
                     children: [
-                      CircleAvatar(
-                        radius: 50,
-                        backgroundImage: NetworkImage(
-                            'https://avatars.githubusercontent.com/u/73416301?s=400&u=c2542cf6d5ec4465dbfb8f46d86aced2d63d85dd&v=4'),
+                      AboutProfile(
+                        'Hazem Sief',
+                        'assets/images/hazem.jpg',
                       ),
                       SizedBox(
-                        height: 20,
+                        width: 15,
                       ),
-                      Container(
-                        padding: EdgeInsets.all(5),
-                        child: Text(
-                          'Nada Elborhamy',
-                          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.blue),
-                        ),
+                      AboutProfile(
+                        'Ahmed Abdelmaqsod',
+                        'assets/images/abdelmaksoud.jpg',
                       ),
                       SizedBox(
-                        height: 10,
+                        width: 15,
                       ),
-                      Container(
-                          padding: EdgeInsets.all(5),
-                          child: Text('Flutter Developer', style: TextStyle( color: Colors.blue),)),
+                      AboutProfile(
+                        'Mohamed Adel',
+                        'assets/images/mohamed-adel.jpg',
+                      ),
                     ],
                   ),
                 ],
@@ -159,6 +191,44 @@ class AboutScreen extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class AboutProfile extends StatelessWidget {
+  final String name;
+  final String image;
+
+  AboutProfile(this.name, this.image);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        CircleAvatar(
+          radius: 35,
+          backgroundImage: AssetImage(image),
+        ),
+        SizedBox(
+          height: 10,
+        ),
+        Container(
+            padding: EdgeInsets.all(3),
+            child: Text(
+              name,
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 12,
+                  color: Colors.blue),
+            )),
+        Text(
+          'Flutter Developer',
+          style: TextStyle(
+            fontSize: 12,
+            color: Colors.blue,
+          ),
+        ),
+      ],
     );
   }
 }
